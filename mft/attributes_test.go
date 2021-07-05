@@ -1,6 +1,7 @@
 package mft_test
 
 import (
+	"fmt"
 	"testing"
 	"time"
 
@@ -43,6 +44,7 @@ func TestParseStandardInformation(t *testing.T) {
 
 func TestParseFileName(t *testing.T) {
 	input := decodeHex(t, "e2680900000004007064eacc62b2d501000f014577c1cf01808beacc62b2d5017064eacc62b2d50100a00100000000002a9801000000000020000000000000000c036c006f0067006f002d003200350030002e0070006e006700")
+	fmt.Println(input)
 	out, err := mft.ParseFileName(input)
 	require.Nilf(t, err, "could not parse attribute: %v", err)
 	expected := mft.FileName{
